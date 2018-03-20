@@ -14,6 +14,10 @@ html {
     font-family: "Lucida Sans", sans-serif;
 }
 
+body {
+    background-image: url("picture1");
+}
+
 .top-container {
     position: relative;
     max-width: 100%;
@@ -30,10 +34,6 @@ html {
     width: 100%;
     padding: 20px;
 }
-
-
-
-
 
 .header {
     background-color: rgb(193, 122, 80);
@@ -63,6 +63,7 @@ html {
 }
 
 .header li a:hover {
+	
     background-color: rgb(212, 99, 61);
 }
 
@@ -159,6 +160,62 @@ html {
     font-size: 12px;
     padding: 15px;
 }
+
+
+
+
+/* garbage i wrote */
+
+
+.categorii {
+    float: left;
+    overflow: hidden;
+}
+
+.categorii .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px 16px;
+    background-color: #333333;
+    font-family: inherit;
+    margin: 0;
+}
+
+.header a:hover, .categorii:hover .dropbtn {
+    background-color: rgb(212, 99, 61);
+}
+
+.categorii-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.categorii-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.categorii-content a:hover {
+    background-color: #0099cc;
+}
+
+.categorii:hover .categorii-content {
+    display: block;
+} 
+
+
+/* garbage stops here */
+
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
@@ -192,4 +249,54 @@ html {
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+}
+
+
+
+
+
+.categorii {
+    float: left;
+    overflow: hidden;
+}
+
+.categorii .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px 16px;
+    background-color: #333333;
+    font-family: inherit;
+    margin: 0;
+}
+
+.header a:hover, .categorii:hover .dropbtn {
+    background-color: rgb(212, 99, 61);
+}
+
+.categorii-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.categorii-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.categorii-content a:hover {
+    background-color: #0099cc;
+}
+
+.categorii:hover .categorii-content {
+    display: block;
 }
