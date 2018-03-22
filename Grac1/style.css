@@ -22,7 +22,9 @@ a {
     color: white;
 }
 
-
+.img-circle {
+    border-radius: 50px;
+}
 
 
 .top-container {
