@@ -43,7 +43,7 @@ $this->tag=$tag;
 
   $inreg = mysqli_fetch_array ($interog);
 
-$this->aid=$inreg['max(id)']+1;
+$this->id=$inreg['max(id)']+1;
   }
 
 
@@ -59,14 +59,22 @@ public function inserttodb()
 if (mysqli_connect_errno()) {
 	die ('Conexiunea a esuat...');
 }
+$pdo = new PDO('mysql:host=localhost;dbname=grac', 'root', '');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$stmt = $pdo->prepare("insert into autograf (id,idUser,path,title,date1,date2,date3,det1,tag) values (:id,:aid,:path,:title,:date1,:date2,:date3,:det1,:tag)");
+//FOR TESTING ONLY REMOVE AFTER IT WORKS
+$this->aid=6;
+$stmt->bindParam(":id",$this->id,PDO::PARAM_INT);
+$stmt->bindParam(":aid",$this->aid,PDO::PARAM_INT);
+$stmt->bindParam(":path",$this->path,PDO::PARAM_STR, 20);
+$stmt->bindParam(":title",$this->title,PDO::PARAM_STR, 20);
+$stmt->bindParam(":date1",$this->date1,PDO::PARAM_STR, 20);
+$stmt->bindParam(":date2",$this->date2,PDO::PARAM_STR, 20);
+$stmt->bindParam(":date3",$this->date3,PDO::PARAM_STR, 20);
+$stmt->bindParam(":det1",$this->det1,PDO::PARAM_STR, 20);
+$stmt->bindParam(":tag",$this->tag,PDO::PARAM_STR, 20);
 
-$sql = "INSERT INTO autograf (id,idUser,path,title,date1,date2,date3,det1,tag) VALUES (?,?,?,?,?,?,?,?)";
-
-$stmt = $mysql->prepare(sql);
-$stmt->bind_param('iisssssss', $this->id,$this->aid,$this->path,$this->title,$this->date1,$this->date2,$this->date3,$this->det1,$this->tag);
 $stmt->execute();
-
-
 
 
 /*if (mysqli_query($mysql, $sql)) {
