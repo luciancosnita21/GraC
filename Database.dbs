@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="TW" id="Project_118eabb" template="Default" database="MySql" >
+	<schema name="tw" schemaname="tw" >
+		<table name="autograf" >
+			<column name="id " type="int" jt="4" mandatory="y" autoincrement="y" />
+			<column name="id_user" type="int" jt="4" mandatory="y" />
+			<column name="data_achizitionare" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="personalitate" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="domeniu" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="tags" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="valoare " type="int" jt="4" />
+			<index name="pk_table_id " unique="PRIMARY_KEY" >
+				<column name="id " />
+			</index>
+			<index name="idx_table_id_user" unique="NORMAL" >
+				<column name="id_user" />
+			</index>
+			<fk name="fk_table_user" to_schema="tw" to_table="user" delete_action="cascade" >
+				<fk_column name="id_user" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="user" >
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="prenume" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="password" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="adresa_email " type="varchar" length="40" jt="12" mandatory="y" />
+			<column name="username" type="varchar" length="15" jt="12" mandatory="y" />
+			<index name="pk_user_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_9e908d" show_relation="columns" >
+		<entity schema="tw" name="autograf" color="c1d8ee" x="360" y="165" />
+		<entity schema="tw" name="user" color="c1d8ee" x="135" y="180" />
+		<callout x="45" y="45" pointer="NO" >
+			<comment><![CDATA[This project is in offline mode.
+Design the schema and save the design to project file. Later create or upgrade the schema on any database.
+Right-click the layout to add new tables. Drop this callout from its right-click pop-up menu.]]></comment>
+		</callout>
+	</layout>
+</project>
