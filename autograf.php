@@ -11,19 +11,12 @@ include "user.php";
 class autograf extends user{
 
 private $aid;
-
 private $path;
-
 private $title;
-
 private $date1;
-
 private $date2;
-
 private $date3;
-
 private $detl;
-
 private $tag;
 private $tip;
 
@@ -45,6 +38,7 @@ $this->detl=$detl;
 $this->tag=$tag;
 
 $this->tip=$tip;
+
   $conexiune = mysqli_connect (
 
     'localhost', // locatia serverului (aici, masina locala)
@@ -125,17 +119,16 @@ $pdo = new PDO('mysql:host=localhost;dbname=grac', 'root', '');
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$stmt = $pdo->prepare("insert into autograf (id,idUser,imagine,title,data_achizitionare,personalitate,domeniu,detalii_aditionale,tag,scop) values (:id,:aid,:path,:title,:date1,:date2,:date3,:detl,:tag,:tip)");
+$stmt = $pdo->prepare("insert into autograf (id,idUser,path,title,data_achizitionare,personalitate,domeniu,detalii_aditionale,tag,scop) values (:id,:aid,:path,:title,:date1,:date2,:date3,:detl,:tag,:tip)");
 
-//FOR TESTING ONLY REMOVE AFTER IT WORKS
-
-$this->aid=6;
+//to be removed;
+$this->aid=5;
 
 $stmt->bindParam(":id",$this->id,PDO::PARAM_INT);
 
 $stmt->bindParam(":aid",$this->aid,PDO::PARAM_INT);
 
-$stmt->bindParam(":path",$this->path,PDO::PARAM_STR, 20);
+$stmt->bindParam(":path",$this->path,PDO::PARAM_STR, 100);
 
 $stmt->bindParam(":title",$this->title,PDO::PARAM_STR, 20);
 
@@ -149,9 +142,8 @@ $stmt->bindParam(":detl",$this->detl,PDO::PARAM_STR, 20);
 
 $stmt->bindParam(":tag",$this->tag,PDO::PARAM_STR, 20);
 
-$stmt->bindParam(":tip",$this->tag,PDO::PARAM_STR, 20);
+$stmt->bindParam(":tip",$this->tip,PDO::PARAM_STR, 20);
 
-//$stmt->execute();
 
 
 

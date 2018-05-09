@@ -41,7 +41,7 @@
 
   <div class="container">
 	<label for="Path"><b>Imagine</b></label>
-    <input type="text" placeholder="File Path" name="Path" required>
+    <input type="file" placeholder="File Path" name="Path" required>
   
     <label for="title"><b>Titlu</b></label>
     <input type="text" placeholder="Titlu" name="title" required>
@@ -56,15 +56,14 @@
     <input type="text" placeholder=" " name="date3" required>
 	
 	<label for="detl"><b>Detalii aditionale</b></label>
-    <input type="text"  placeholder=" " name="detl" required>
+    <input type="text"  placeholder=" " name="detl" id="detl" required>
 
     <label for="tag"><b>Taguri</b>(vor fi separate prin spatiu)</label>
     <input type="text" placeholder=" " name="tag" required>
-        
-		
-		
-	<input type="radio" name="type" value="private"> Privat
-	<input type="radio" name="type" value="public"> Public
+	
+	<input type="radio" name="type" value = "privat" class="radio"> Privat
+	<input type="radio" name="type" value = "public" class="radio"> Public
+	
 	
     <button type="submit">Upload</button>
 
