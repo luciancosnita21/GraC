@@ -1,5 +1,5 @@
 <?php
-$numeErr = $prenumeErr = $numeutilizatorErr = $varstaErr =$adresaErr =$adresaemailErr =$passwordErr=$password2Err= "";
+$numeErr = $prenumeErr = $numeutilizatorErr = $varstaErr =$adresaErr =$adresaemailErr =$passwordErr=$password2Err="";
 $nume= $prenume = $numeutilizator= $varsta =$adresa =$adresaemail =$password=$password2= "";
 
 
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $adresaemail = test_input($_POST["adresaemail"]);
     // check if e-mail address is well-formed
-    if (!filter_var($adresaemail, FILTER_VALIDATE_EMAIL)) {
+    if (filter_var($adresaemail, FILTER_VALIDATE_EMAIL)) {
       $adresemailErr = "Invalid email format"; 
     }
   }
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   if (empty($_POST["varsta"])) {
-    $varstaErr = "Gender is required";
+    $varstaErr = "Nu ati introdus varsta";
   } else {
     $varsta = test_input($_POST["varsta"]);
   }
@@ -94,14 +94,44 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-  
-  
+  if(!($numeErr || $prenumeErr || $numeutilizatorErr ||$varstaErr ||$adresaErr ||$adresaemailErr ||$passwordErr ||$password2Err ))
+  {
   include 'user.php';
   
 $us=new user($nume, $prenume, $numeutilizator, $varsta,$adresa,$adresaemail,$password);
 $us->inserttodb();
 
-
+  }
+  else
+  {if($numeErr)
+  {echo $numeErr;
+echo("<br>");
+  }
+   if($prenumeErr)
+  {echo $prenumeErr;
+echo("<br>");
+  }
+    if($numeutilizatorErr)
+  {echo($numeutilizatorErr);
+echo("<br>");
+  }
+    if($varstaErr)
+  {echo($varstaErr);
+echo("<br>");
+  }
+    if($adresaemailErr)
+  {echo($adresaemailErr);
+echo("<br>");
+  }
+    if($passwordErr)
+  {echo($passwordErr);
+echo("<br>");
+  }
+    if($password2Err)
+  {echo($password2Err);
+echo("<br>");
+  }
+  }
 
 
 

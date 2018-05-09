@@ -1,0 +1,197 @@
+
+<?php
+session_start();
+ ?>
+
+
+
+
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style2.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="top-container">
+  <img src="picture3.png" alt="Doctor Who" style="width:100%;height: 170px;">
+  <div class="content">
+  <h1>GraC</h1>
+  <p>Autograph collector.</p>
+</div>
+</div>
+<div class="header" id="myHeader">
+  <ul>
+  <li><a href="index.html">Acasa</a></li>
+	<div class="categorii">
+		<button class="dropbtn">Categorii </button>
+		<div class="categorii-content">
+			<a href="scriitori">Scriitori</a>
+			<a href="pictori">Pictori</a>
+			<a href="actori">Actori</a>
+                        <a href="sportivi">Sportivi</a>
+                        <a href="politicieni">Personalitati politice</a>
+                        <a href="muzicieni">Muzicieni</a>
+                       <input type="text" placeholder="Search.."> 
+		</div>
+      
+  </div> 
+  
+</ul>
+</div>
+<div class="row">
+
+<div class="col-3 col-s-3 menu">
+  <ul>
+     <li><a href="Profile change.html">Modifica profil</a></li>
+    <li><a href="Upload.html">Adaugare autograf nou</a></li>
+    <li>Autografe dorite</li>
+  </ul>
+ 
+  <a href="logout.php"><button type="button" class="cancelbtn">Logout</button></a>
+</div>
+
+<div class="col-9 col-s-9">
+ <h1>Top autografe</h1>
+<div class="row2">
+  <div class="column">
+ <div class="content2">
+   <h1>Actori</h1>
+
+
+ <img src="picture6.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Nume:Harisson Fordddddddddddddddd dddddddddddddddddddd</p>
+<p>Perioada:1978</p>
+<?php
+if(isset($_SESSION['UNAME']))
+ECHO $_SESSION['UNAME'];
+?>
+
+
+
+
+<?php
+$conexiune = mysql_connect (
+    'localhost', // locatia serverului (aici, masina locala)
+    'root',       // numele de cont
+    ''     // parola
+  );
+  // verificam daca am reusit
+  if (!$conexiune) {
+  	die ('A survenit o eroare de conectare: ' . mysql_error());
+  }
+  // deschidem baza de date 
+  if (!mysql_select_db('grac', $conexiune)) {
+    die ('Baza de date nu poate fi deschisa: ' . mysql_error());
+  } 
+
+
+  $sql = "select title,personalitate from autograf where id=6";
+  $interog = mysql_query ($sql, $conexiune);
+ 
+  if (!$interog) {
+  	die ('A survenit o eroare la interogare: ' . mysql_error());
+  }
+
+
+ //$inreg = mysql_fetch_array ($interog);
+//ECHO 'DAAAAAAAAAAAAAA AASNJAAAKAJK';
+
+	//echo ( $inreg["title"] .'<br>'); 
+	//echo ($inreg["personalitate"]);
+ while ($inreg =mysql_fetch_assoc($interog)) 
+ {
+echo ( $inreg["title"] .'<br>'); 
+	echo ($inreg["personalitate"]);
+ 
+   }
+
+ ?>
+<p>Valoare:10</p>
+</div>
+</div>
+<div class="column">
+ <div class="content2">
+  <h1>Sportivi</h1>
+
+
+ <img src="picture5.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Nume:Babe Ruth</p>
+
+<?php
+ include "afiseaza.php";
+ $tip='sportiv';
+ 
+ $afiseaza=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza->afiseazaAutograf();
+ 
+?>
+<p>Perioada:1988</p>
+<p>Valoare:9</p>
+ <img src="picture13.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Nume:CR7(Cristiano Ronaldo)</p>
+<p>Perioada:2018</p>
+<p>Valoare:11</p>
+<p>Note:Ronaldo>Mesi.CR7 NR1 #FOREVER!!</p>
+</div>
+</div>
+
+<div class="column">
+ <div class="content2">
+  <h1>Muzicieni</h1>
+  <p
+ <img src="picture15.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Nume:Freddie Mercury</p>
+<p>Perioada:1990</p>
+<p>Valoare:14</p>
+ <img src="picture14.jpg" alt="p6" style="width:100%">
+<p>Nume:Fuego</p>
+<h3>Detalii:</h3>
+<p>Perioada:2015</p>
+<p>Valoare:6</p>
+</div>
+</div>
+
+<div class="column">
+ <div class="content2">
+  <h1>Scriitori</h1>
+  
+ <img src="picture8.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Nume:James Dean</p>
+<p>Perioada:1998</p>
+<p>Valoare:9</p>
+ <img src="picture9.jpg" alt="p6" style="width:100%">
+<h3>Detalii:</h3>
+<p>Lev Tolstoi</p>
+<p>Perioada:1898</p>
+<p>Valoare:7</p>
+
+</div>
+</div>
+</div>
+<div class="col-9 col-s-9">
+<h>Selectare autografe</h>
+ <button type="button"><a href="Scriitori.html">Selectare categorie autograf</a></button>
+ <button type="button"><a href="Scriitori.html">Autografe ordonate alfabetic</a></button>
+ <button type="button"><a href="Scriitori.html">Autografe ordonate dupa data achizitionarii</a></button>
+ <button type="button"><a href="Scriitori.html">Autografe ordonate dupa valoare</a></button>
+</div>
+</div>
+
+
+
+</div>
+<div class="footer">
+  <p></p>
+</div>
+<script src="Script.js"></script>
+</body>
+</html>
+ 
+ 

@@ -20,23 +20,23 @@ $this->varsta=$varsta;
 $this->adresa=$adresa;
 $this->adresaEmail=$adresaEmail;
 $this->password=$password;
-  $conexiune = mysqli_connect (
+  $conexiune = mysql_connect (
     'localhost', // locatia serverului (aici, masina locala)
     'root',       // numele de cont
     ''     // parola
   );
   // verificam daca am reusit
   if (!$conexiune) {
-  	die ('A survenit o eroare de conectare: ' . mysqli_error());
+  	die ('A survenit o eroare de conectare: ' . mysql_error());
   }
   // deschidem baza de date 
-  if (!mysqli_select_db($conexiune,'grac')) {
-    die ('Baza de date nu poate fi deschisa: ' . mysqli_error());
+  if (!mysql_select_db('grac', $conexiune)) {
+    die ('Baza de date nu poate fi deschisa: ' . mysql_error());
   } 
 
 
   $sql = "select max(id) from utilizator";
-  $interog = mysqli_query ($conexiune,$sql);
+  $interog = mysql_query ($sql, $conexiune);
  
   if (!$interog) {
   	die ('A survenit o eroare la interogare: ' . mysql_error());
@@ -44,7 +44,7 @@ $this->password=$password;
 
 
 
-  $inreg = mysqli_fetch_array ($interog);
+  $inreg = mysql_fetch_array ($interog);
 
 $this->id=$inreg['max(id)']+1;
 
@@ -70,19 +70,16 @@ VALUES ('$this->id','$this->nume','$this->prenume' ,'$this->numeutilizator','$th
 
 
 
-
 if (mysqli_query($mysql, $sql)) {
     echo "New record created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($mysql);
+   echo "Error: " . $sql . "<br>" . mysqli_error($mysql);
 }
-
 mysqli_close($mysql);
 }
 
 
 }
-
 
 
 ?>
