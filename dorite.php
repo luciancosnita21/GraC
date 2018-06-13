@@ -95,13 +95,14 @@ session_start();
 <div class="row">
 <div class="col-3 col-s-3 menu">
     
-<form method="post" action="vot.php" >
+<form method="post" action="schimb.php" >
+
 <h1>Propune un schimb</h1>
   <div class="container">
  <label for="date3"><b><h3>Autograf Cerut</h3></b></label>
   <p></p>
-    <select name="date3" onchange="showUser(this.value,1)">
-    <option value="">Selecteaza autograf:</option>
+    <select name="date3" onchange="showUser(this.value,1)"  style="width:100px">
+    <option value="">Selecteaza..:</option>
    <?php
   
   include "afiseaza.php";
@@ -113,8 +114,8 @@ session_start();
   
   <label for="date4"><b><h3>Autograf propus</h3></b></label>
   <p></p>
-    <select name="date4" onchange="showUser(this.value,2)">
-    <option value="">Selecteaza autograf:</option>
+    <select name="date4" onchange="showUser(this.value,2)" style="width:100px">
+    <option value="">Selecteaza..:</option>
    <?php
   
  $id= $_SESSION['UNAME'];
@@ -123,10 +124,10 @@ session_start();
    ?>
   </select>
 
-<label for="date5"><b><h3>Autograf propus</h3></b></label>
+<label for="date5"><b><h3>Autograf propus_2</h3></b></label>
   <p></p>
-    <select name="date5" onchange="showUser(this.value,3)">
- <option value="">Selecteaza autograf:</option>
+    <select name="date5" onchange="showUser(this.value,3)" style="width:100px">
+ <option value="">Selecteaza..:</option>
    <?php
   
 $id= $_SESSION['UNAME'];
@@ -135,10 +136,10 @@ $id= $_SESSION['UNAME'];
    ?>
   </select>
 
-<label for="date6"><b><h3>Autograf propus</h3></b></label>
+<label for="date6"><b><h3>Autograf propus_3</h3></b></label>
   <p></p>
-    <select name="date6" onchange="showUser(this.value,4);">
-          <option value="">Selecteaza autograf:</option>
+    <select name="date6" onchange="showUser(this.value,4);" style="width:100px">
+          <option value="">Selecteaza..:</option>
    <?php
   
 $id= $_SESSION['UNAME'];
@@ -160,11 +161,13 @@ $id= $_SESSION['UNAME'];
  <div class="content2">
 <h1 style=  "padding:10px;border: 5px solid brown; border-radius: 45px;margin: 0;">Autograf cerut:</h1>
 <div id="t1"><b></b></div>
+
 </div>
  </div>
 
   <div class="column">
  <div class="content2">
+
   </div>
  </div>
 
@@ -173,30 +176,24 @@ $id= $_SESSION['UNAME'];
  <h1 style= "padding: 10px;border: 5px solid brown; border-radius: 45px;margin: 0;"> Autografe oferite</h1>
 <div id="t2"><b></b></div>
 <div id="t3"><b></b></div>
-</div>
-</div>
-  <div class="column">
- <div class="content2">
-  <h1></h1>
 <div id="t4"><b></b></div>
-
 </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 
+
+
+<script src="ajax.js"></script>
+
+
+
+
+  <button type="button" style="width:200px ;border-radius: 30%"  onclick="loadlist1();">Tranzactii in asteptare</button>
+  <button type="button" style="width:200px ;border-radius: 30%"  onclick="loadlist2();">Tranzactii aceptate</button>
+  <button type="button" style="width:200px  ;border-radius: 30%"  onclick="loadlist3();">Tranzactii neaceptate</button>
+  <p id="demo">Lista...</p>
+</div>
 
 
 </div>
