@@ -1,0 +1,431 @@
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+body {
+    background-image: url("picture1");
+}
+
+a {
+      
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+
+
+
+.top-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+   
+}
+
+.top-container img {vertical-align: middle;
+  height: 20px;
+  }
+
+.top-container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1;
+    width: 100%;
+    padding-bottom: 5px;
+   
+}
+
+.header {
+    background-color: rgb(193, 122, 80);
+    color: #ffffff;
+    padding: 1px;
+}
+
+.header ul{
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+
+
+}
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.header li a:hover {
+	
+    background-color: rgb(212, 99, 61);
+}
+
+
+
+
+.header input[type=text] {
+    border: 1px solid #ccc; 
+    width: 110px;
+}
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: rgb(212, 99, 61);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
+.menu dropbtn {
+   padding: 8px;
+    margin-bottom: 7px;
+    background-color: rgb(212, 99, 61);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu dropup {
+    position: relative;
+    display: inline-block;
+}
+
+.menu dropup-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    bottom:50px;
+    z-index: 1;
+}
+
+.menu dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu dropup-content a:hover {background-color: rgb(212, 99, 61)}
+
+.menu dropup:hover .dropup-content {
+    display: block;
+}
+
+.menu dropup:hover .dropbtn {
+    background-color: yellow;
+}
+
+
+
+
+
+
+
+.aside {
+    background-color: rgb(212, 99, 61);
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.footer {
+    background-color: rgb(147, 83, 58);
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+
+
+
+
+.categorii {
+    float: left;
+    overflow: hidden;
+}
+
+.categorii .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px 16px;
+    background-color: #333333;
+    font-family: inherit;
+    margin: 0;
+}
+
+.header a:hover, .categorii:hover .dropbtn {
+    background-color: rgb(212, 99, 61);
+}
+
+.categorii-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.categorii-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.categorii-content a:hover {
+    background-color: #0099cc;
+}
+
+.categorii:hover .categorii-content {
+    display: block;
+} 
+
+
+
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color:rgb(147, 83, 58);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 25px;
+}
+
+.container {
+    
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+
+
+
+
+.categorii {
+    float: left;
+    overflow: hidden;
+}
+
+.categorii .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px 16px;
+    background-color: #333333;
+    font-family: inherit;
+    margin: 0;
+}
+
+
+
+.header a:hover, .categorii:hover .dropbtn {
+    background-color: rgb(212, 99, 61);
+}
+
+.categorii-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.categorii-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.categorii-content a:hover {
+    background-color: #0099cc;
+}
+
+.categorii:hover .categorii-content {
+    display: block;
+}
+* {
+    box-sizing: border-box;
+}
+
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+.row2 {
+    margin: 8px -16px;
+}.row2:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.row2,
+.row2 > .column {
+    padding: 8px;
+}
+.content2 {
+    background-color: white;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="top-container">
+  <img src="picture3.png" alt="Doctor Who" style="width:100%;height: 170px;">
+  <div class="content">
+  <h1>GraC</h1>
+  <p>Autograph collector.</p>
+</div>
+</div>
+<div class="header" id="myHeader">
+  <ul>
+   <li>   <a href="paginacont.php">Aplication main page</a>  </li>
+ <div class="categorii">
+		<button class="dropbtn">Categorii </button>
+		<div class="categorii-content">
+			<a href="Scriitori.php">Scriitori</a>
+			<a href="Plastice.php">Pictori si sculptori</a>
+			<a href="Actori.php">Actori</a>
+                        <a href="Sportivi.php">Sportivi</a>
+                        <a href="Politicieni.php">Personalitati politice</a>
+                        <a href="Muzicieni.php">Muzicieni</a>
+                        <a href="Altele.php">Altele</a>
+		</div>
+   </div> 
+     <li> <form method="post" action="search.php" style="border:0px;height:2px"> <input type="text" name="search" placeholder="Search." />
+     <input type="submit" value=">>"/> </form> </li>
+
+  
+</ul>
+</div>
+<div class="row">
+
+<div class="col-4 col-s-3">
+<h2>Formular Upload</h2>
+
+<form method="post" action="uploadAutograf.php" enctype="multipart/form-data">
+
+  <div class="container">
+	<label for="Picture"><b>Imagine</b></label>
+  <p></p>
+   <input type="file" name="Picture" id="Picture" required>
+    <p></p>
+    <label for="title"><b>Titlu</b></label>
+    <input type="text" placeholder="Titlu" name="title" required>
+	
+	<label for="date1"><b>Data achizitionare</b></label>
+    <input type="text" placeholder=" " name="date1" required>
+	
+	<label for="date2"><b>Vedeta</b></label>
+    <input type="text" placeholder=" " name="date2" required>
+	
+	<label for="date3"><b>Domeniu</b></label>
+  <p></p>
+    <select name="date3">
+    <option value="Scriitori">Scriitori</option>
+    <option value="Sportivi">Sportivi</option>
+    <option value="Actori">Actori</option>
+    <option value="Muzicieni">Muzicieni</option>
+     <option value="Politicieni">Personalitati politice</option>
+     <option value="Plastice">Pictori si sculptori</option>
+     <option value="Altele">Alte categorii</option>
+    
+    
+    
+  </select>
+	<p></p>
+	<label for="detl"><b>Detalii aditionale</b></label>
+    <input type="text"  placeholder=" " name="detl" required>
+
+    <label for="tag"><b>Taguri</b>(vor fi separate prin spatiu)</label>
+    <input type="text" placeholder=" " name="tag" required>
+        
+		
+		
+	<input type="radio" name="type" value="private" required> Privat
+	<input type="radio" name="type" value="public" required> Public
+	
+    <button type="submit">Upload</button>
+
+  </div>
+
+</form>
+</div>
+</div>
+
+<div class="footer">
+  <p>Footer.</p>
+</div>
+<script src="Script.js"></script>
+</body>
+</html>
