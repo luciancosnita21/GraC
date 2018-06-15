@@ -23,20 +23,22 @@ session_start();
 </div>
 <div class="header" id="myHeader">
   <ul>
-  <li><a href="index.html">Acasa</a></li>
+ 
 	<div class="categorii">
 		<button class="dropbtn">Categorii </button>
 		<div class="categorii-content">
-			<a href="scriitori">Scriitori</a>
-			<a href="pictori">Pictori</a>
-			<a href="actori">Actori</a>
-                        <a href="sportivi">Sportivi</a>
-                        <a href="politicieni">Personalitati politice</a>
-                        <a href="muzicieni">Muzicieni</a>
-                       <input type="text" placeholder="Search.."> 
+			<a href="Scriitori.php">Scriitori</a>
+			<a href="Plastice.php">Pictori si sculptori</a>
+			<a href="Actori.php">Actori</a>
+                        <a href="Sportivi.php">Sportivi</a>
+                        <a href="Politicieni.php">Personalitati politice</a>
+                        <a href="Muzicieni.php">Muzicieni</a>
+                        <a href="Altele.php">Altele</a>
 		</div>
-      
-  </div> 
+   </div> 
+     <li> <form method="post" action="search.php" style="border:0px;height:2px"> <input type="text" name="search" placeholder="Search." />
+     <input type="submit" value=">>"/> </form> </li>
+
   
 </ul>
 </div>
@@ -44,72 +46,57 @@ session_start();
 
 <div class="col-3 col-s-3 menu">
   <ul>
-     <li><a href="Profile change.html">Modifica profil</a></li>
+    
     <li><a href="Upload.html">Adaugare autograf nou</a></li>
-    <li>Autografe dorite</li>
+    <li><a href="dorite.php">Autografe dorite</a></li>
+     <li><a href="cerute.php">Autografe cerute</a></li>
+  
   </ul>
  
   <a href="logout.php"><button type="button" class="cancelbtn">Logout</button></a>
 </div>
 
 <div class="col-9 col-s-9">
- <h1>Top autografe</h1>
+ <h1>Autografele detinute:</h1>
 <div class="row2">
   <div class="column">
  <div class="content2">
    <h1>Actori</h1>
 
 
- <img src="picture6.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Nume:Harisson Fordddddddddddddddd dddddddddddddddddddd</p>
-<p>Perioada:1978</p>
+
+
 <?php
-if(isset($_SESSION['UNAME']))
-ECHO $_SESSION['UNAME'];
+ include "afiseaza.php";
+ $tip='Actori';
+ 
+ $afiseaza1=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza1->afiseazaAutograf();
+ 
+?>
+
+
+   <h1>Personalitati Politice</h1>
+
+
+
+
+<?php
+
+ $tip='Politicieni';
+ 
+ $afiseaza1=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza1->afiseazaAutograf();
+ 
 ?>
 
 
 
 
-<?php
-$conexiune = mysql_connect (
-    'localhost', // locatia serverului (aici, masina locala)
-    'root',       // numele de cont
-    ''     // parola
-  );
-  // verificam daca am reusit
-  if (!$conexiune) {
-  	die ('A survenit o eroare de conectare: ' . mysql_error());
-  }
-  // deschidem baza de date 
-  if (!mysql_select_db('grac', $conexiune)) {
-    die ('Baza de date nu poate fi deschisa: ' . mysql_error());
-  } 
 
 
-  $sql = "select title,personalitate from autograf where id=6";
-  $interog = mysql_query ($sql, $conexiune);
- 
-  if (!$interog) {
-  	die ('A survenit o eroare la interogare: ' . mysql_error());
-  }
 
 
- //$inreg = mysql_fetch_array ($interog);
-//ECHO 'DAAAAAAAAAAAAAA AASNJAAAKAJK';
-
-	//echo ( $inreg["title"] .'<br>'); 
-	//echo ($inreg["personalitate"]);
- while ($inreg =mysql_fetch_assoc($interog)) 
- {
-echo ( $inreg["title"] .'<br>'); 
-	echo ($inreg["personalitate"]);
- 
-   }
-
- ?>
-<p>Valoare:10</p>
 </div>
 </div>
 <div class="column">
@@ -117,70 +104,96 @@ echo ( $inreg["title"] .'<br>');
   <h1>Sportivi</h1>
 
 
- <img src="picture5.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Nume:Babe Ruth</p>
+ 
 
 <?php
- include "afiseaza.php";
- $tip='sportiv';
+
+ $tip='Sportivi';
  
- $afiseaza=new afiseaza($_SESSION['UNAME'],$tip);
- $afiseaza->afiseazaAutograf();
+ $afiseaza2=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza2->afiseazaAutograf();
  
 ?>
-<p>Perioada:1988</p>
-<p>Valoare:9</p>
- <img src="picture13.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Nume:CR7(Cristiano Ronaldo)</p>
-<p>Perioada:2018</p>
-<p>Valoare:11</p>
-<p>Note:Ronaldo>Mesi.CR7 NR1 #FOREVER!!</p>
+
+
+
+   <h1>Pictori si sculptori</h1>
+
+
+
+
+<?php
+
+ $tip='Plastice';
+ 
+ $afiseaza1=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza1->afiseazaAutograf();
+ 
+?>
+
+
+
+
+
+
+
+
+
 </div>
 </div>
 
 <div class="column">
  <div class="content2">
   <h1>Muzicieni</h1>
-  <p
- <img src="picture15.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Nume:Freddie Mercury</p>
-<p>Perioada:1990</p>
-<p>Valoare:14</p>
- <img src="picture14.jpg" alt="p6" style="width:100%">
-<p>Nume:Fuego</p>
-<h3>Detalii:</h3>
-<p>Perioada:2015</p>
-<p>Valoare:6</p>
+  <?php
+ 
+ $tip='Muzicieni';
+ 
+ $afiseaza3=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza3->afiseazaAutograf();
+ 
+?>
+ 
+ 
+ 
+ 
 </div>
 </div>
 
 <div class="column">
  <div class="content2">
   <h1>Scriitori</h1>
-  
- <img src="picture8.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Nume:James Dean</p>
-<p>Perioada:1998</p>
-<p>Valoare:9</p>
- <img src="picture9.jpg" alt="p6" style="width:100%">
-<h3>Detalii:</h3>
-<p>Lev Tolstoi</p>
-<p>Perioada:1898</p>
-<p>Valoare:7</p>
+  <?php
 
+ $tip='Scriitori';
+ 
+ $afiseaza4=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza4->afiseazaAutograf();
+ 
+?>
+     <h1>Autografe neincluse intr-o categorie</h1>
+
+
+<?php
+
+ $tip='Altele';
+ 
+ $afiseaza1=new afiseaza($_SESSION['UNAME'],$tip);
+ $afiseaza1->afiseazaAutograf();
+ 
+?>
+ 
+ 
+ 
 </div>
 </div>
 </div>
 <div class="col-9 col-s-9">
 <h>Selectare autografe</h>
- <button type="button"><a href="Scriitori.html">Selectare categorie autograf</a></button>
- <button type="button"><a href="Scriitori.html">Autografe ordonate alfabetic</a></button>
- <button type="button"><a href="Scriitori.html">Autografe ordonate dupa data achizitionarii</a></button>
- <button type="button"><a href="Scriitori.html">Autografe ordonate dupa valoare</a></button>
+
+ <button type="button"><a href="Scriitori.php">Autografe ordonate alfabetic</a></button>
+ <button type="button"><a href="rss.php">Raport RSS</a></button>
+ <button type="button"><a href="pdf.php">Raport PDF</a></button>
 </div>
 </div>
 

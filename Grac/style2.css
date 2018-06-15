@@ -344,6 +344,8 @@ span.psw {
     margin: 0;
 }
 
+
+
 .header a:hover, .categorii:hover .dropbtn {
     background-color: rgb(212, 99, 61);
 }
@@ -396,6 +398,12 @@ span.psw {
         width: 100%;
     }
 }
+
+
+
+
+
+
 .row2 {
     margin: 8px -16px;
 }.row2:after {
@@ -411,4 +419,13 @@ span.psw {
     background-color: white;
     padding: 10px;
 }
+
+
+
+
+
+
+
+
+
 

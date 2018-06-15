@@ -15,20 +15,22 @@
 </div>
 <div class="header" id="myHeader">
   <ul>
-  <li><a href="index.html">Acasa</a></li>
-	<div class="categorii">
+   <li>   <a href="paginacont.php">Aplication main page</a>  </li>
+ <div class="categorii">
 		<button class="dropbtn">Categorii </button>
 		<div class="categorii-content">
-			<a href="scriitori">Scriitori</a>
-			<a href="pictori">Pictori</a>
-			<a href="actori">Actori</a>
-            <a href="sportivi">Sportivi</a>
-            <a href="politicieni">Personalitati politice</a>
-            <a href="muzicieni">Muzicieni</a>
-                       <input type="text" placeholder="Search.."> 
+			<a href="Scriitori.php">Scriitori</a>
+			<a href="Plastice.php">Pictori si sculptori</a>
+			<a href="Actori.php">Actori</a>
+                        <a href="Sportivi.php">Sportivi</a>
+                        <a href="Politicieni.php">Personalitati politice</a>
+                        <a href="Muzicieni.php">Muzicieni</a>
+                        <a href="Altele.php">Altele</a>
 		</div>
-      
-  </div> 
+   </div> 
+     <li> <form method="post" action="search.php" style="border:0px;height:2px"> <input type="text" name="search" placeholder="Search." />
+     <input type="submit" value=">>"/> </form> </li>
+
   
 </ul>
 </div>
@@ -37,12 +39,13 @@
 <div class="col-4 col-s-3">
 <h2>Formular Upload</h2>
 
-<form method="post" action="uploadAutograf.php">
+<form method="post" action="uploadAutograf.php" enctype="multipart/form-data">
 
   <div class="container">
-	<label for="Path"><b>Imagine</b></label>
-    <input type="text" placeholder="File Path" name="Path" required>
-  
+	<label for="Picture"><b>Imagine</b></label>
+  <p></p>
+   <input type="file" name="Picture" id="Picture" required>
+    <p></p>
     <label for="title"><b>Titlu</b></label>
     <input type="text" placeholder="Titlu" name="title" required>
 	
@@ -53,8 +56,20 @@
     <input type="text" placeholder=" " name="date2" required>
 	
 	<label for="date3"><b>Domeniu</b></label>
-    <input type="text" placeholder=" " name="date3" required>
-	
+  <p></p>
+    <select name="date3">
+    <option value="Scriitori">Scriitori</option>
+    <option value="Sportivi">Sportivi</option>
+    <option value="Actori">Actori</option>
+    <option value="Muzicieni">Muzicieni</option>
+     <option value="Politicieni">Personalitati politice</option>
+     <option value="Plastice">Pictori si sculptori</option>
+     <option value="Altele">Alte categorii</option>
+    
+    
+    
+  </select>
+	<p></p>
 	<label for="detl"><b>Detalii aditionale</b></label>
     <input type="text"  placeholder=" " name="detl" required>
 

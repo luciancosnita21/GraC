@@ -170,43 +170,21 @@ $conexiune->close();
 
 
 
-
-
-
-
-
-
-
 public function inserttodb()
 
+{
+  
+  $mysql = new mysqli (
+'localhost', // locatia serverului (aici, masina locala)
+'root',       // numele de cont
 
+'',    // parola (atentie, in clar!)
 
-{$mysql = new mysqli (
-
-
-
-	'localhost', // locatia serverului (aici, masina locala)
-
-
-
-	'root',       // numele de cont
-
-
-
-	'',    // parola (atentie, in clar!)
-
-
-
-	'grac'   // baza de date
+'grac'   // baza de date
 
 
 
 	);
-
-
-
-
-
 
 
 // verificam daca am reusit
@@ -239,85 +217,37 @@ $stmt = $pdo->prepare("insert into autograf (id,idUser,imagine,title,data_achizi
 
 //to be removed;
 
-
-
 $stmt->bindParam(":id",$this->id,PDO::PARAM_INT);
-
-
 
 $stmt->bindParam(":idUser",$this->idUser,PDO::PARAM_INT);
 
-
-
 $stmt->bindParam(":path",$this->path,PDO::PARAM_STR, 100);
-
-
 
 $stmt->bindParam(":title",$this->title,PDO::PARAM_STR, 20);
 
-
-
 $stmt->bindParam(":date1",$this->date1,PDO::PARAM_STR, 20);
-
-
 
 $stmt->bindParam(":date2",$this->date2,PDO::PARAM_STR, 20);
 
-
-
 $stmt->bindParam(":date3",$this->date3,PDO::PARAM_STR, 20);
-
-
 
 $stmt->bindParam(":detl",$this->detl,PDO::PARAM_STR, 20);
 
-
-
 $stmt->bindParam(":tag",$this->tag,PDO::PARAM_STR, 20);
-
-
 
 $stmt->bindParam(":tip",$this->tip,PDO::PARAM_STR, 20);
 
 
-
-
-
-
-
-
-
-
-
-
-
 if ($stmt->execute()) {
-
-
 
     echo "New record created successfully";
 
-
-
 } else {
 
-
-
     echo "Error: " . $sql . "<br>" . mysqli_error($mysql);
-
-
-
 }
-
-
-
 mysqli_close($mysql);
-
-
-
 }
-
-
 }
 
 

@@ -72,6 +72,7 @@ VALUES ('$this->id','$this->nume','$this->prenume' ,'$this->numeutilizator','$th
 
 if (mysqli_query($mysql, $sql)) {
     echo "New record created successfully";
+    echo ' <button type="button"><a href="Login.html">Acum va puteti loga</a></button>' ; 
 } else {
    echo "Error: " . $sql . "<br>" . mysqli_error($mysql);
 }
