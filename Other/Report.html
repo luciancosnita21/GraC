@@ -19,8 +19,127 @@
 				</dd>
 			</dl>
 		</section>
-		<section id="stuff1">
-			
+		<section id="idea">
+			<p>
+			<h1>Ideile de la care am pornit:</h1>
+				<ul>
+					<li>Gestionarea autografelor cu usurinta</li>
+					<li>Stocare autografelor in format digital</li>
+					<li>Ajutarea la estimarea valorii unui autograf</li>
+				</ul>
+			</p>
+		</section>
+		<section id="interface">
+			<h1>Interfata grafica</h1>
+			<p>
+				Interfata grafica este una simpla care faciliteaza usurinta navigarii.
+				Nu am intampinat dificultati majore in creerea acesteia.
+				Paginile sunt web responsive.
+			</p>
+		</section>
+		<section id="backend">
+			<h1>Back-end</h1>
+			<section id="backend1">
+				<h4>Functii folosite universale</h4>
+				<p>
+					Avem o clasa care are diferite tiupri de functii de afisare care le folosim in functie de context.
+					De exemplu avem o functie de afisarea a tranzactiilor, a autografelor etc.
+					Fiecare functie face o interogare sql, rezultatele fiind afisate.
+					Fiecare autograf are taguri asociate si un domeniu din care apartine pentru a facilita cautarea.
+				</p>
+			</section>
+			<section id="backend2">
+				<h3>Formulare</h3>
+				<section id="backend2.1">
+					<h4>Crearea contului/logare</h4>
+					<p>
+						Crearea contului si logarea sunt niste formulare care se completeaza si detaliile lor se adauga
+						in baza de date.Folosind functia pdo.bind evitam majoritatea atacurilor de tipul sql injection
+					</p>
+				</section>
+				<section id="backend2.2">
+					<h4>Adaugarea unui autograf</h4>
+					<p>
+						Adaugarea unui autograf este din nou doar un formular care preia datele.Special feature aici
+						este faptul ca fotografia se preia la nivel local si se uploadeaza pe server.Locatia ei fiind
+						salvata in baza de date iar apoi preluata de functia de afisare de fiecare data cand
+						este necesara afisarea autografului respectiv
+					</p>
+				</section>
+				<section id="backend2.3">
+					<h4>Bara search</h4>
+					<p>
+						Cea mai usoara metoda pe care am gasito pentru descrierea functionalitatii pentru search
+						este un mini formular ascuns care preia datele din bara, efectueaza o interogare in baza de date
+						apoi afiseaza pe ecran autografele relevante.Sectiunea categorii folosind ceva similar.
+					</p>
+				</section>
+			</section>
+			<section id="backend3">
+				<h3>Gestionarea Autografelor</h3>
+					<p>
+						Gestionarea autografelor consta in mare parte in in adaugarea lor in baza de date si tranzactii.
+						Autografele de tipulo "public" vor fi vizible de toata lumea in schimb ce autografele de tipul"privat"
+						vor fi vizibile doar pentru utilizatorul care le-a uploadat			
+					</p>
+				<section id="backend3.1">
+					<h4>Tranzactii</h4>
+					<p>
+						Persoana 1 selecteaza un autograful care nu ii apartine si care l-ar dorii si apoi
+						selecteaza unul sau mai multe autografe pe care ar dorii sa le dea la schimb pentru autograful
+						ales anterior.
+						O data trimisa solicitarea aceasta este salvata intr-un tabel in baza de date iar \
+						in categoria "Autografe dorite" ii va aparea proprietarea autografului dorit cererea de
+						la persoana 1.
+						Persoana 2 poate accepta sau refuza tranzactia.Daca tranzactia este refuzata aceasta 
+						isi va schimba statusul in tabel ca fiind "negata" ramanand in acesta si autografele vor 
+						ramane la proprietarii lor.Daca schimbul este acceptat atunci statusul tranzactie se schimba
+						in "accepted" iar schimbul este facut.Pana in momentul acceptari sau refuzului statusul 
+						schimbului este de "pending"
+					</p>
+				</section>
+				<section id="backend3.2">
+					<h4>Votarea</h4>
+					<p>
+						Votarea se face prin gasirea selectarea unei valori din meniul drop down care apare sup autograf.
+						Valoarea unui autograf este calculata facand media aritmetica a voturilor.
+					</p>
+				</section>	
+			</section>
+			<section id="backend-ajax">
+				<h3>Ajax-suite</h3>
+				<p>
+					Folosim ajax pentru a facilita schimburile de autografe intr-un mod mai dinamic (afisarea) autografelor
+					dorite,cerute si a tranzactiilor , si a tipurilor de tranzactii.	
+				</p>
+			</section>
+		</section>
+		<section>
+			<h2>Probeleme intapinate</h2>
+			<section>
+				<h4>Redicrectionarile</h4>
+				<p>
+					Redirectionarea dinamica a fost o problema datorita faptului ca nu puteam stii in ce pagina suntem.
+					Datorita lipsei de timp am decis sa evitam aceasta problem prin redirectionarea la o pagina
+					prestabilita
+				</p>
+			</section>
+			<section>
+				<h4>Too much data</h4>
+				<p>
+					Sistemul de votare nu este foarte practic cand apar foarte multe date in sistem.
+					Nu am putut rezolva aceasta problema
+				</p>
+			</section>
+		</section>
+		<section>
+			<h2>Sources</h2>
+			<ul>
+				<li>https://profs.info.uaic.ro/~busaco/teach/courses/web</li>
+				<li>https://www.w3schools.com</li>
+				<li>https://www.w3schools.com/html/html_responsive.asp</li>
+				<li>www.fpdf.org</li>
+			</ul>
 		</section>
 	</body>
 </html>
